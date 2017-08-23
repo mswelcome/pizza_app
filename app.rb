@@ -22,6 +22,20 @@ end
 
 get '/confirm' do
 
-  erb :confirm, locals: {meats: session[:meats], veggies: session[:veggies]}
+  erb :confirm, locals: {meats: session[:meats], veggies: session[:veggies], cheese: session[:cheese], size: session[:size], delivery: session[:delivery]}
+
+end
+
+post '/res' do
+
+  session[:address] = params[:address]
+  session[:conf] = params[:conf]
+  redirect '/results?'
+
+end
+
+get '/results' do
+
+    erb :results, locals: {conf: session[:conf], address: session[:address], size: session[:size]}
 
 end

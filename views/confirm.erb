@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+<h1> Please confirm your selections: </h1>
+
+<form method = "post" action="/res">
+
+  <%if meats == nil%>
+
+  <%else%>
+
+    <%meats.each do |m|%>
+      <%=m%>
+      <img src = "/images/<%=m%>.png"  width="42" height="42">
+      <input type = "radio" name = "conf[<%=m%>]" value = <%=m%> checked> Yes
+      <input type = "radio" name = "conf[<%=m%>]"> No <br>
+
+    <%end%>
+  <%end%>
+
+  <%if veggies == nil%>
+
+  <%else%>
+
+      <%veggies.each do |v|%>
+        <%=v%>
+        <img src = "/images/<%=v%>.png"  width="42" height="42">
+        <input type = "radio" name = "conf[<%=v%>]" value = <%=v%> checked > Yes
+        <input type = "radio" name = "conf[<%=v%>]"> No <br>
+      <%end%>
+  <%end%>
+
+  <%if cheese == nil%>
+
+  <%else%>
+    <%cheese.each do |c|%>
+      <%=c%>
+      <img src = "/images/<%=c%>.png"  width="42" height="42">
+      <input type = "radio" name = "conf[<%=c%>]" value = <%=c%> checked> Yes
+      <input type = "radio" name = "conf[<%=c%>]"> No <br>
+    <%end%>
+  <%end%>
+
+
+      <%if delivery == "Yes"%>
+          <h3> What is the address for delivery? </h3> <br>
+          <img src = "/images/delivery.png"  width="42" height="42"> <br>
+          <input type = "text" name = "address" placeholder="Enter address here"><br>
+    <%end%>
+
+    <input type = "submit">
+
+
+
+
+</form>
+</body>
+</html>
