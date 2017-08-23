@@ -4,15 +4,19 @@
 
 
 <body>
-<h1> Your <%=size%> pizza with: </h1>
+<h1> Your <img src = "/images/extralarge.png"  width="42" height="42"> <br> <%=size%> pizza with: </h1>
 
   <%conf.each_pair do |choice, value|%>
-    <%conf[:choice]%>
-
-  <%end%>
+    <%if value == "on"%>
+      <%conf.delete(choice)%>
+    <%else%>
+      <img src = "/images/<%=value%>.png"  width="42" height="42"> <br>
+      <h1>  <%=value%> </h1>
+    <%end%>
+   <%end%>
 
  <h1> Will be delivered to: </h1> <br>
-
+  <img src = "/images/delivery.png"  width="42" height="42"> <br>
 <h1>  <%=address%> </h1> <br>
 
 
