@@ -29,7 +29,7 @@ end
 post '/res' do
 
   session[:address] = params[:address]
-  session[:conf] = params[:conf]
+  session[:conf] = params[:conf].to_a
   redirect '/results?'
 
 end

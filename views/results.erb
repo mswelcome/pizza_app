@@ -6,12 +6,12 @@
 <body>
 <h1> Your <img src = "/images/extralarge.png"  width="42" height="42"> <br> <%=size%> pizza with: </h1>
 
-  <%conf.each_pair do |choice, value|%>
-    <%if value == "on"%>
-      <%conf.delete(choice)%>
+  <%conf.each do |blah|%>
+    <%if blah == "on"%>
+      <%conf.delete(blah)%>
     <%else%>
-      <img src = "/images/<%=value%>.png"  width="42" height="42"> <br>
-      <h1>  <%=value%> </h1>
+      <img src = "/images/<%=blah%>.png"  width="42" height="42"> <br>
+      <h1>  <%=blah[0]%> </h1>
     <%end%>
    <%end%>
 
