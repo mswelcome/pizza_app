@@ -6,18 +6,18 @@
 <body>
 
 <form method="post" action="/final">
-<h1> Your <img src = "/images/extralarge.png"  width="42" height="42"> <br> <%=size%> pizza with: </h1>
+<h1> Your <img src = "/images/extralarge.png"  width="42" height="42"> <br> <%=size[0]%> pizza with: </h1>
 
   <%conf.each do |blah|%>
     <%if blah == "on"%>
       <%conf.delete(blah)%>
     <%else%>
       <img src = "/images/<%=blah%>.png"  width="42" height="42"> <br>
-      <h1>  <%=blah[0]%> </h1>
+      <h1>  <%=blah%> </h1>
     <%end%>
    <%end%>
 
-   <%conf.unshift(size)%>
+   <%conf.insert(0, size)%>
 
 
 
@@ -27,7 +27,11 @@
 
 
 <h3> Would you like to add another pizza? </h3>
-    <a id = "more" href="/" onclick="pies[] << conf" target="_self"> Add Pizza </a><br>
+    <input type="radio" name = "bzzz" value="yes"> Yes
+    <input type="radio" name = "bzzz" value="no"> No
+    <!-- <a id = "more" href="/" target="_self"> Add Pizza </a><br> -->
+
+<div id  = ugh> </div>
 
 <input type = 'submit'>
 
@@ -44,8 +48,12 @@
 
   function pizzas(conf) {
     var pies = [];
-    pies.push(conf);
-
+    var stuff = pies.push(conf)
+    var pp = document.createElement('input');
+    pp.type = "hidden";
+    pp.name = "grrr";
+    pp.value = stuff;
+    ugh.appendChild(pp);
   }
 
 </script>

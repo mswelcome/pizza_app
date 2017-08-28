@@ -10,9 +10,10 @@ get '/' do
   erb :select
 
 end
+  $cost = 0
 
 post '/select' do
-  $cost = 0
+  p "#{$cost}"
   session[:meats] = params[:meats]
   session[:veggies] = params[:veggies]
   session[:cheese] = params[:cheese]
@@ -43,7 +44,8 @@ end
 
 post '/res' do
   session[:address] = params[:address]
-  session[:conf] = params[:conf].to_a
+  session[:conf] = params[:conf].values
+
   redirect '/more?'
 
 end
@@ -56,15 +58,24 @@ get '/more' do
 end
 
 post '/final' do
-  session[:pies] = params[:pies]
+  session[:pies] = session[:pies] || []
+  session[:pies] << session[:conf]
+  p "#{session[:conf]} Confirm"
+  p "#{session[:pies]} Pies"
+  bzzz = params[:bzzz]
   @params = params
   print @params
-  redirect  '/results?'
+  if bzzz == "yes"
+    redirect '/?'
+  else bzzz == "no"
+    redirect  '/results?'
+  end
 end
 
 
 
 get '/results' do
-    session[:pies] = params[:pies]
-    erb :results, locals: {pizzas: session[:pizzas]}
+
+    erb :results, locals: {pies: session[:pies], size: session[:size], address: session[:address]}
+
 end
