@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<body>
+
+<form method="post" action="/final">
+<h1> Your <img src = "/images/extralarge.png"  width="42" height="42"> <br> <%=size%> pizza with: </h1>
+
+  <%conf.each do |blah|%>
+    <%if blah == "on"%>
+      <%conf.delete(blah)%>
+    <%else%>
+      <img src = "/images/<%=blah%>.png"  width="42" height="42"> <br>
+      <h1>  <%=blah[0]%> </h1>
+    <%end%>
+   <%end%>
+
+   <%conf.unshift(size)%>
+
+
+
+ <h1> Will be delivered to: </h1> <br>
+  <img src = "/images/delivery.png"  width="42" height="42"> <br>
+<h1>  <%=address%> </h1> <br>
+
+
+<h3> Would you like to add another pizza? </h3>
+    <a id = "more" href="/" onclick="pies[] << conf" target="_self"> Add Pizza </a><br>
+
+<input type = 'submit'>
+
+</form>
+
+
+
+
+
+
+
+
+<script>
+
+  function pizzas(conf) {
+    var pies = [];
+    pies.push(conf);
+
+  }
+
+</script>
+
+
+
+
+
+
+</body>
+</html>
