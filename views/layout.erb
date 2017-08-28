@@ -6,15 +6,20 @@
 
 </head>
 
-<body class="center">
+<body class="center image">
+
+  <header class="bb">
+    <h1 class = "center"> Durzo's Pizza </h1>
+    <h4 class = "right"> Total: <%=@cost%> </h4>
+  </header>
 
 
 
 
 
-
-
+<div class = 'border'>
 <%=yield%>
+</div>
 
 
 
@@ -27,11 +32,12 @@
 
 
 
-
-<footer>
+<footer class = 'border'>
   <a href="http://www.minedminds.org" target = "_blank"> MinedMinds</a><br>
   <p> Come let us march toward the end of all reason </p>
-  <a href="/aboutus" target="_blank"> About Us </a> <br>
+  <a href="/aboutus" target="_blank">
+    <img src="images/nightangel.jpg" width="42" height="42">
+   </a> <br>
 </footer>
 
 

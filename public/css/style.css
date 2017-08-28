@@ -1,3 +1,28 @@
 .center {
+
 		text-align: center;
+}
+
+.border {
+
+	border: solid;
+	border-radius: 25px;
+
+}
+
+.image {
+
+
+	background-image: url(/images/aizen_sama_by_vinhfx.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+
+}
+
+.right {
+		text-align: right;
+}
+
+.bb {
+	border-bottom-style: double;
 }

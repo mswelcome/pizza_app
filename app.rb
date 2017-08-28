@@ -3,6 +3,8 @@
 require "sinatra"
 enable :sessions
 
+@cost = 0
+
 get '/' do
 
   erb :select
@@ -16,6 +18,15 @@ post '/select' do
   session[:cheese] = params[:cheese]
   session[:size] = params[:size]
   session[:delivery] = params[:delivery]
+  if size == "extralarge"
+    @cost = @cost + 15
+  elsif size == "large"
+    @cost = @cost + 12
+  elsif size == "medium"
+    @cost = @cost + 9
+  else size == "small"
+    @cost = @cost + 7
+  end
   redirect '/confirm?'
 
 end
@@ -34,8 +45,13 @@ post '/res' do
 
 end
 
-get '/results' do
+get '/more' do
+    session[:pizzas] = params[:pizzas]
+    erb :more, locals: {conf: session[:conf], address: session[:address], size: session[:size]}
 
-    erb :results, locals: {conf: session[:conf], address: session[:address], size: session[:size]}
+end
 
+get 'results' do
+
+    erb :results, locals: {}
 end
